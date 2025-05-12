@@ -41,31 +41,18 @@ Numeric* IntNumeric::add(const Numeric* x)
 {
     // Check the type of x and perform addition accordingly
     NumericType type = x->getType();
-    if(type== NumericType::INT)
+    switch(type)
     {
-        const IntNumeric* intNum = dynamic_cast<const IntNumeric*>(x);
-        return new IntNumeric(intNum->getValue() + value);
-    }
-    else if(type == NumericType::FLOAT)
-    {
-        const FloatNumeric* floatNum = dynamic_cast<const FloatNumeric*>(x);
-        return new FloatNumeric(floatNum->getValue() + value);
-    }
-    else if(type == NumericType::DOUBLE)
-    {
-        const DoubleNumeric* doubleNum = dynamic_cast<const DoubleNumeric*>(x);
-        if (!doubleNum) {
-            std::cerr << "Error: dynamic_cast to DoubleNumeric* failed!" << std::endl;
+        case NumericType::INT:
+            return new IntNumeric(value + dynamic_cast<const IntNumeric*>(x)->getValue());
+        case NumericType::FLOAT:
+            return new FloatNumeric(value + dynamic_cast<const FloatNumeric*>(x)->getValue());
+        case NumericType::DOUBLE:
+            return new DoubleNumeric(value + dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        default:
+            std::cerr << "Invalid type for addition" << std::endl;
             return nullptr;
-        }
-        return new DoubleNumeric(doubleNum->getValue() + value);
     }
-    else
-    {
-        std::cerr << "Invalid type for addition" << std::endl;
-        return nullptr;
-    }
-
 }
 
 Numeric* IntNumeric::subtract(const Numeric* x)
