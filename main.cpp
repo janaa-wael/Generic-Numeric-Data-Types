@@ -18,4 +18,10 @@ int main()
     cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
     n3 = n4->divide(n2);
     cout << (dynamic_cast<FloatNumeric*>(n3))->getValue() << endl;
+    n3 = n1->add(n2);
+    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    n3 = n1->multiply(n2);
+    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    n3 = n1->divide(n2);
+    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
 }
