@@ -11,8 +11,8 @@ int main()
     Numeric* n1 = new DoubleNumeric(3.13543);
     Numeric* n2 = new IntNumeric(4);
     Numeric* n3 = n2->add(n1);
-    cout << n2->isEqual(n1) << endl;
-    cout << n2->isEqual(n2) << endl;
+    //cout << n2->isEqual(n1) << endl;
+    //cout << n2->isEqual(n2) << endl;
     cout << std::fixed << std::setprecision(5);
     cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
 }

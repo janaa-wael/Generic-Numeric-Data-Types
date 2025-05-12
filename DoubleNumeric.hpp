@@ -8,7 +8,11 @@ public:
     DoubleNumeric();
     DoubleNumeric(double x);
     double getValue(void) const;
-    virtual NumericType getType() ;
+    virtual NumericType getType() const;
+    virtual int toInt() const;
+    virtual float toFloat() const;
+    virtual double toDouble() const;
+
     virtual Numeric* add(const Numeric* x);
     virtual Numeric* subtract(const Numeric* x) ;
     virtual Numeric* multiply(const Numeric* x);

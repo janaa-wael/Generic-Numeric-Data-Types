@@ -13,7 +13,7 @@ public:
     virtual float toFloat() const;
     virtual double toDouble() const;
 
-    virtual NumericType getType() ;
+    virtual NumericType getType() const;
     virtual Numeric* add(const Numeric* x);
     virtual Numeric* subtract(const Numeric* x);
     virtual Numeric* multiply(const Numeric* x);

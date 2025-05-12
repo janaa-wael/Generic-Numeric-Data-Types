@@ -15,7 +15,10 @@ double DoubleNumeric::getValue(void) const
 {
     return value;
 }
-
+Numeric::NumericType DoubleNumeric::getType() const
+{
+    return NumericType::DOUBLE;
+}
 int DoubleNumeric::toInt() const
 {
     return static_cast<int>(value);
@@ -33,7 +36,6 @@ double DoubleNumeric::toDouble() const
 Numeric* DoubleNumeric::add(const Numeric* x)
 {
     const DoubleNumeric* doubleNum = dynamic_cast<const DoubleNumeric*>(x);
-    if(x->getType() == Numeric::INT)
     return new DoubleNumeric(doubleNum->getValue() + value);
 
 }

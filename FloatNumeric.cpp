@@ -12,6 +12,10 @@ FloatNumeric::FloatNumeric(float x)
 {
 
 }
+Numeric::NumericType FloatNumeric::getType() const
+{
+    return NumericType::FLOAT;
+}
 
 float FloatNumeric::getValue(void) const
 {
