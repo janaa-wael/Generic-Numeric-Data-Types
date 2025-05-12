@@ -4,6 +4,8 @@
 #include "FloatNumeric.hpp"
 #include "DoubleNumeric.hpp"
 #include "Complex.hpp"
+#include <vector>
+#include <algorithm>
 #include <iomanip>
 using namespace std;
 
@@ -40,4 +42,20 @@ int main()
     cout << (n7)->getValue() << endl;
     n3 = n1->add(n7);
     cout << (n3)->getValue() << endl;
+    vector<Numeric*> v;
+    v.push_back(n1);
+    v.push_back(n2);
+    v.push_back(n3);
+    v.push_back(n4);
+    for(int i = 0; i < 4 ; i++)
+    {
+        cout << "Loop " << i+1 << ":" << endl;
+        cout << v[i]->getValue() << endl;
+    }
+    sort(v.begin(), v.end(), NumericComparator());
+    for(int i = 0; i < 4 ; i++)
+    {
+        cout << "Loop " << i+1 << ":" << endl;
+        cout << v[i]->getValue() << endl;
+    }
 }

@@ -2,8 +2,10 @@
 #define NUMERIC_HPP
 
 
+
 class Numeric{
 public:
+
 enum class NumericType {
     INT,
     FLOAT,
@@ -32,5 +34,9 @@ enum class NumericType {
     virtual Numeric* operator/(const Numeric& other) ;
     virtual ~Numeric() = default;    
 };
-
+struct NumericComparator {
+    bool operator()(Numeric* a, Numeric* b) const {
+        return a->toDouble() < b->toDouble();
+    }
+};
 #endif
