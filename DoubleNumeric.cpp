@@ -35,6 +35,23 @@ double DoubleNumeric::toDouble() const
     return static_cast<double>(value);
 }
 
+DoubleNumeric::DoubleNumeric(const Numeric* other)
+{
+    if(this != other)
+    {
+        value = other->toDouble();
+    }
+}
+DoubleNumeric& DoubleNumeric::operator=(const Numeric* other)
+{
+    if(this != other)
+    {
+        value = other->toDouble();
+    }
+    return *this;
+}
+
+
 Numeric* DoubleNumeric::add(const Numeric* x)
 {
         // Check the type of x and perform addition accordingly

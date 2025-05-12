@@ -164,3 +164,19 @@ bool FloatNumeric::isEqual(const Numeric* x)
     }
 }
 
+FloatNumeric::FloatNumeric(const Numeric* other)
+{
+    if(this != other)
+    {
+        value = other->toFloat();
+    }
+}
+FloatNumeric& FloatNumeric::operator=(const Numeric* other)
+{
+    if(this != other)
+    {
+        value = other->toFloat();
+    }
+    return *this;
+}
+

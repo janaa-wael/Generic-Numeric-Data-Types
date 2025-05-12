@@ -30,5 +30,9 @@ int main()
     cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl; 
     Numeric* n5 = new IntNumeric(3);
     n3 = *n5 - *n1;
-    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    cout << (dynamic_cast<IntNumeric*>(n2))->getValue() << endl;
+    n2 = n4;
+    cout << (dynamic_cast<FloatNumeric*>(n2))->getValue() << endl;
+    FloatNumeric* n6 = dynamic_cast<FloatNumeric*>(n2);
+
 }

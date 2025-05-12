@@ -8,6 +8,8 @@ class IntNumeric : public Numeric{
 public:
     IntNumeric();
     IntNumeric(int v);
+    IntNumeric(const Numeric* other);
+    IntNumeric& operator=(const Numeric* other);
     int getValue(void) const;
     virtual int toInt() const;
     virtual float toFloat() const;

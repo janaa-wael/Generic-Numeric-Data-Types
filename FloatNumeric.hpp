@@ -7,6 +7,8 @@ class FloatNumeric : public Numeric{
 public:
     FloatNumeric();
     FloatNumeric(float x);
+    FloatNumeric(const Numeric* other);
+    FloatNumeric& operator=(const Numeric* other);
     virtual NumericType getType() const ;
     float getValue(void) const;
     virtual int toInt() const;

@@ -138,6 +138,23 @@ bool IntNumeric::isGreaterThan(const Numeric* x)
     }
 }
 
+IntNumeric::IntNumeric(const Numeric* other)
+{
+    if(this != other)
+    {
+        value = other->toInt();
+    }
+}
+IntNumeric& IntNumeric::operator=(const Numeric* other)
+{
+    if(this != other)
+    {
+        value = other->toInt();
+    }
+    return *this;
+}
+
+
 bool IntNumeric::isEqual(const Numeric* x)
 {
             NumericType type = x->getType();
