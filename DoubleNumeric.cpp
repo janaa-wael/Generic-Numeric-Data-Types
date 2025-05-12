@@ -1,6 +1,7 @@
 #include <iostream>
 #include "DoubleNumeric.hpp"
 #include "FloatNumeric.hpp"
+#include "Complex.hpp"  
 #include "IntNumeric.hpp"
 #include "Numeric.hpp"
 DoubleNumeric::DoubleNumeric()
@@ -64,6 +65,8 @@ Numeric* DoubleNumeric::add(const Numeric* x)
             return new DoubleNumeric(value + dynamic_cast<const FloatNumeric*>(x)->getValue());
         case NumericType::DOUBLE:
             return new DoubleNumeric(value + dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        case NumericType::COMPLEX:
+            return new Complex(value + dynamic_cast<const Complex*>(x)->getValue(), 0);
         default:
             std::cerr << "Invalid type for addition" << std::endl;
             return nullptr;
@@ -82,6 +85,8 @@ Numeric* DoubleNumeric::subtract(const Numeric* x)
             return new DoubleNumeric(value - dynamic_cast<const FloatNumeric*>(x)->getValue());
         case NumericType::DOUBLE:
             return new DoubleNumeric(value - dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        case NumericType::COMPLEX:
+            return new Complex(value - dynamic_cast<const Complex*>(x)->getValue(), 0);
         default:
             std::cerr << "Invalid type for addition" << std::endl;
             return nullptr;
@@ -99,6 +104,8 @@ Numeric* DoubleNumeric::multiply(const Numeric* x)
             return new DoubleNumeric(value * dynamic_cast<const FloatNumeric*>(x)->getValue());
         case NumericType::DOUBLE:
             return new DoubleNumeric(value * dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        case NumericType::COMPLEX:
+            return new Complex(value * dynamic_cast<const Complex*>(x)->getValue(), 0);
         default:
             std::cerr << "Invalid type for addition" << std::endl;
             return nullptr;
@@ -117,6 +124,8 @@ Numeric* DoubleNumeric::divide(const Numeric* x)
             return new DoubleNumeric(value / dynamic_cast<const FloatNumeric*>(x)->getValue());
         case NumericType::DOUBLE:
             return new DoubleNumeric(value / dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        case NumericType::COMPLEX:
+            return new Complex(value / dynamic_cast<const Complex*>(x)->getValue(), 0);
         default:
             std::cerr << "Invalid type for addition" << std::endl;
             return nullptr;
@@ -134,6 +143,8 @@ bool DoubleNumeric::isLessThan(const Numeric* x)
             return value < dynamic_cast<const FloatNumeric*>(x)->getValue();
         case NumericType::DOUBLE:
             return value < dynamic_cast<const DoubleNumeric*>(x)->getValue();
+        case NumericType::COMPLEX:
+            return value < dynamic_cast<const Complex*>(x)->getValue();
         default:
             std::cerr << "Invalid type for addition" << std::endl;
             return false;
@@ -151,6 +162,8 @@ bool DoubleNumeric::isGreaterThan(const Numeric* x)
             return value > dynamic_cast<const FloatNumeric*>(x)->getValue();
         case NumericType::DOUBLE:
             return value > dynamic_cast<const DoubleNumeric*>(x)->getValue();
+        case NumericType::COMPLEX:
+            return value > dynamic_cast<const Complex*>(x)->getValue();
         default:
             std::cerr << "Invalid type for addition" << std::endl;
             return false;
@@ -168,6 +181,8 @@ bool DoubleNumeric::isEqual(const Numeric* x)
             return value == dynamic_cast<const FloatNumeric*>(x)->getValue();
         case NumericType::DOUBLE:
             return value == dynamic_cast<const DoubleNumeric*>(x)->getValue();
+        case NumericType::COMPLEX:
+            return value == dynamic_cast<const Complex*>(x)->getValue();
         default:
             std::cerr << "Invalid type for addition" << std::endl;
             return false;

@@ -9,7 +9,7 @@ public:
     DoubleNumeric(double x);
     DoubleNumeric(const Numeric* other);
     DoubleNumeric& operator=(const Numeric* other);
-    double getValue(void) const;
+    virtual double getValue(void) const;
     virtual NumericType getType() const;
     virtual int toInt() const;
     virtual float toFloat() const;

@@ -18,7 +18,7 @@ enum class NumericType {
     virtual int toInt() const = 0;
     virtual float toFloat() const = 0;
     virtual double toDouble() const = 0;
-
+    virtual double getValue(void) const = 0;
     virtual Numeric* add(const Numeric* x) = 0;
     virtual Numeric* subtract(const Numeric* x) = 0;
     virtual Numeric* multiply(const Numeric* x) = 0;

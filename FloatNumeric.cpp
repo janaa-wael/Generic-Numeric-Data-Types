@@ -19,9 +19,9 @@ Numeric::NumericType FloatNumeric::getType() const
     return NumericType::FLOAT;
 }
 
-float FloatNumeric::getValue(void) const
+double FloatNumeric::getValue(void) const
 {
-    return value;
+    return static_cast<double>(value);
 }
 
 int FloatNumeric::toInt() const

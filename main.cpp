@@ -3,6 +3,7 @@
 #include "IntNumeric.hpp"
 #include "FloatNumeric.hpp"
 #include "DoubleNumeric.hpp"
+#include "Complex.hpp"
 #include <iomanip>
 using namespace std;
 
@@ -15,24 +16,28 @@ int main()
     cout << n2->isEqual(n1) << endl;
     cout << n2->isEqual(n2) << endl;
     cout << std::fixed << std::setprecision(5);
-    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    cout << (n3)->getValue() << endl;
     n3 = n4->divide(n2);
-    cout << (dynamic_cast<FloatNumeric*>(n3))->getValue() << endl;
+    cout << (n3)->getValue() << endl;
     n3 = n1->add(n2);
-    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    cout << (n3)->getValue() << endl;
     n3 = n1->multiply(n2);
-    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    cout << (n3)->getValue() << endl;
     n3 = n1->divide(n2);
-    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    cout << (n3)->getValue() << endl;
     n3 = *n1 + *n4;
-    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl;
+    cout << (n3)->getValue() << endl;
     n3 = *n1 - *n4;
-    cout << (dynamic_cast<DoubleNumeric*>(n3))->getValue() << endl; 
+    cout << (n3)->getValue() << endl; 
     Numeric* n5 = new IntNumeric(3);
     n3 = *n5 - *n1;
-    cout << (dynamic_cast<IntNumeric*>(n2))->getValue() << endl;
+    cout << (n2)->getValue() << endl;
     n2 = n4;
     cout << (dynamic_cast<FloatNumeric*>(n2))->getValue() << endl;
     FloatNumeric* n6 = dynamic_cast<FloatNumeric*>(n2);
-
+    Numeric* n7 = new Complex(1.3,5);
+    cout << "Complex:" << endl;
+    cout << (n7)->getValue() << endl;
+    n3 = n1->add(n7);
+    cout << (n3)->getValue() << endl;
 }
