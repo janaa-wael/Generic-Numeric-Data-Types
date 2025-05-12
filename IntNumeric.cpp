@@ -154,3 +154,8 @@ bool IntNumeric::isEqual(const Numeric* x)
             return false;
     }
 }
+
+Numeric* IntNumeric::operator+(const Numeric& other)
+{
+    return this->add(&other);
+}

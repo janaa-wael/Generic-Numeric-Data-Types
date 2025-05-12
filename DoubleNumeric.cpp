@@ -156,3 +156,8 @@ bool DoubleNumeric::isEqual(const Numeric* x)
             return false;
     }
 }
+
+Numeric* DoubleNumeric::operator+(const Numeric& other)
+{
+    return this->add(&other);
+}
