@@ -106,7 +106,7 @@ Numeric* IntNumeric::divide(const Numeric* x)
 
 bool IntNumeric::isLessThan(const Numeric* x)
 {
-        NumericType type = x->getType();
+    NumericType type = x->getType();
     switch(type)
     {
         case NumericType::INT:
@@ -123,7 +123,7 @@ bool IntNumeric::isLessThan(const Numeric* x)
 
 bool IntNumeric::isGreaterThan(const Numeric* x)
 {
-            NumericType type = x->getType();
+    NumericType type = x->getType();
     switch(type)
     {
         case NumericType::INT:
