@@ -26,8 +26,11 @@ enum class NumericType {
     virtual bool isLessThan(const Numeric* x) = 0;
     virtual bool isGreaterThan(const Numeric* x) = 0;
     virtual bool isEqual(const Numeric* x) = 0;
-    virtual Numeric* operator+(const Numeric& other) = 0;
-
+    virtual Numeric* operator+(const Numeric& other);
+    virtual Numeric* operator-(const Numeric& other) ;
+    virtual Numeric* operator*(const Numeric& other) ;
+    virtual Numeric* operator/(const Numeric& other) ;
+    virtual ~Numeric() = default;    
 };
 
 #endif

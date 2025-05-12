@@ -164,8 +164,3 @@ bool FloatNumeric::isEqual(const Numeric* x)
     }
 }
 
-
-Numeric* FloatNumeric::operator+(const Numeric& other)
-{
-    return this->add(&other);
-}

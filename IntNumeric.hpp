@@ -21,8 +21,10 @@ public:
     virtual bool isLessThan(const Numeric* x);
     virtual bool isGreaterThan(const Numeric* x);
     virtual bool isEqual(const Numeric* x);
-    virtual Numeric* operator+(const Numeric& other);
-  
+
+    //virtual Numeric* operator-(const Numeric& other) = 0;
+    //virtual Numeric* operator*(const Numeric& other) = 0;
+    //virtual Numeric* operator/(const Numeric& other) = 0;
 };
 
 #endif
