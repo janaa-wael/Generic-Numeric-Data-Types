@@ -57,34 +57,100 @@ Numeric* IntNumeric::add(const Numeric* x)
 
 Numeric* IntNumeric::subtract(const Numeric* x)
 {
-    const IntNumeric* intNum = dynamic_cast<const IntNumeric*>(x);
-    return new IntNumeric(intNum->getValue() - value);
+        NumericType type = x->getType();
+    switch(type)
+    {
+        case NumericType::INT:
+            return new IntNumeric(value - dynamic_cast<const IntNumeric*>(x)->getValue());
+        case NumericType::FLOAT:
+            return new FloatNumeric(value - dynamic_cast<const FloatNumeric*>(x)->getValue());
+        case NumericType::DOUBLE:
+            return new DoubleNumeric(value - dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        default:
+            std::cerr << "Invalid type for addition" << std::endl;
+            return nullptr;
+    }
 }
 Numeric* IntNumeric::multiply(const Numeric* x)
 {
-    const IntNumeric* intNum = dynamic_cast<const IntNumeric*>(x);
-    return new IntNumeric(intNum->getValue() * value);
+        NumericType type = x->getType();
+    switch(type)
+    {
+        case NumericType::INT:
+            return new IntNumeric(value * dynamic_cast<const IntNumeric*>(x)->getValue());
+        case NumericType::FLOAT:
+            return new FloatNumeric(value * dynamic_cast<const FloatNumeric*>(x)->getValue());
+        case NumericType::DOUBLE:
+            return new DoubleNumeric(value * dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        default:
+            std::cerr << "Invalid type for addition" << std::endl;
+            return nullptr;
+    }
 }
 Numeric* IntNumeric::divide(const Numeric* x)
 {
-    const IntNumeric* intNum = dynamic_cast<const IntNumeric*>(x);
-    return new IntNumeric(intNum->getValue() * value);
+    NumericType type = x->getType();
+    switch(type)
+    {
+        case NumericType::INT:
+            return new IntNumeric(value / dynamic_cast<const IntNumeric*>(x)->getValue());
+        case NumericType::FLOAT:
+            return new FloatNumeric(value / dynamic_cast<const FloatNumeric*>(x)->getValue());
+        case NumericType::DOUBLE:
+            return new DoubleNumeric(value / dynamic_cast<const DoubleNumeric*>(x)->getValue());
+        default:
+            std::cerr << "Invalid type for addition" << std::endl;
+            return nullptr;
+    }
 }
 
 bool IntNumeric::isLessThan(const Numeric* x)
 {
-    const IntNumeric* intNum = dynamic_cast<const IntNumeric*>(x);
-    return (intNum->getValue() < value);
+        NumericType type = x->getType();
+    switch(type)
+    {
+        case NumericType::INT:
+            return value < dynamic_cast<const IntNumeric*>(x)->getValue();
+        case NumericType::FLOAT:
+            return value < dynamic_cast<const FloatNumeric*>(x)->getValue();
+        case NumericType::DOUBLE:
+            return value < dynamic_cast<const DoubleNumeric*>(x)->getValue();
+        default:
+            std::cerr << "Invalid type for addition" << std::endl;
+            return false;
+    }
 }
 
 bool IntNumeric::isGreaterThan(const Numeric* x)
 {
-    const IntNumeric* intNum = dynamic_cast<const IntNumeric*>(x);
-    return (intNum->getValue() > value);
+            NumericType type = x->getType();
+    switch(type)
+    {
+        case NumericType::INT:
+            return value > dynamic_cast<const IntNumeric*>(x)->getValue();
+        case NumericType::FLOAT:
+            return value > dynamic_cast<const FloatNumeric*>(x)->getValue();
+        case NumericType::DOUBLE:
+            return value > dynamic_cast<const DoubleNumeric*>(x)->getValue();
+        default:
+            std::cerr << "Invalid type for addition" << std::endl;
+            return false;
+    }
 }
 
 bool IntNumeric::isEqual(const Numeric* x)
 {
-    const IntNumeric* intNum = dynamic_cast<const IntNumeric*>(x);
-    return (intNum->getValue() > value);
+            NumericType type = x->getType();
+    switch(type)
+    {
+        case NumericType::INT:
+            return value == dynamic_cast<const IntNumeric*>(x)->getValue();
+        case NumericType::FLOAT:
+            return value == dynamic_cast<const FloatNumeric*>(x)->getValue();
+        case NumericType::DOUBLE:
+            return value == dynamic_cast<const DoubleNumeric*>(x)->getValue();
+        default:
+            std::cerr << "Invalid type for addition" << std::endl;
+            return false;
+    }
 }
